@@ -1,4 +1,6 @@
-(function() {
+start();
+
+function start() {
   'use strict';
 
   //htmlのidからデータを取得
@@ -7,6 +9,9 @@
   var start = document.getElementById('start');
   var stop = document.getElementById('stop');
   var reset = document.getElementById('reset');
+
+  start.disabled = false;
+  stop.disabled = true;
 
   var startTime; //クリック時の時間を保持するための変数定義
   var elapsedTime = 0; //経過時刻を更新するための変数。 初めはだから0で初期化
@@ -34,7 +39,6 @@
     timer.textContent = m + ':' + s + ':' + ms;
   }
 
-
   //再帰的に使える用の関数
   function countUp() {
     //timerId変数はsetTimeoutの返り値になるので代入する
@@ -54,6 +58,9 @@
     startTime = Date.now();
     //再帰的に使えるように関数を作る
     countUp();
+
+    start.disabled = true;
+    stop.disabled = false;
   });
 
   //stopボタンにクリック時のイベントを追加(タイマーストップイベント)
@@ -64,6 +71,9 @@
     //タイマーを再開させたら0になってしまう。elapsedTime = Date.now - startTime
     //それを回避するためには過去のスタート時間からストップ時間までの経過時間を足してあげなければならない。elapsedTime = Date.now - startTime + timeToadd (timeToadd = ストップを押した時刻(Date.now)から直近のスタート時刻(startTime)を引く)
     timeToadd += Date.now() - startTime;
+
+    start.disabled = false;
+    stop.disabled = true;
   });
 
   //resetボタンにクリック時のイベントを追加(タイマーリセットイベント)
@@ -74,6 +84,5 @@
     timeToadd = 0;
     //updateTimetTextで0になったタイムを表示
     updateTimetText();
-
   });
-})();
+};
