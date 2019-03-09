@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson04-0</title>
+</head>
+<body>
+
+    <h1>Hello, World</h1>
+    参考:<a href="https://www.w3schools.com/jsref/met_document_getelementbyid.asp">w3schools</a>
+
+    <p>IDで要素を取得して中身を書き換えてみよう</p>
+    <p id="sample">本日は晴天なり</p>
+
+    <hr>
+
+    <p>クラス名で要素を取得して中身を書き換えてみよう</p>
+    <p class="demo">本日は晴天なり</p>
+
+    <hr>
+
+    <p>名前(name属性)で要素を取得して中身を書き換えてみよう</p>
+    <p name="example">本日は晴天なり</p>
+
+    <hr>
+
+    <p>タグで要素を取得して中身を書き換えてみよう</p>
+    <span>本日は晴天なり</span>
+
+    <hr>
+
+    <script>
+    // getElementByIdを使う
+    document.getElementById("sample").innerHTML = "IDによる書き換え";
+    // getElementsByClassNameを使う
+    document.getElementsByClassName("demo")[0].innerHTML = "クラス名による書き換え";
+    // getElementsByNameを使う
+    document.getElementsByName("example")[0].innerHTML = "名前属性による書き換え";
+    // getElementsByTagNameを使う
+    document.getElementsByTagName("span")[0].innerHTML = "タグによる書き換え";
+    </script>
+
+</body>
+</html>

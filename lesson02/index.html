@@ -5,19 +5,39 @@
   <meta charset="utf-8">
   <title></title>
   <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
-  <div class="container">
-    <h1 id="head">Countdown to my birthday:</h1>
+
+  <head>
+    <div class="container bottom-margin">
+      <h1>X-HACK</h1>
+    </div>
+  </head>
+
+  <div class="container bottom-margin">
+    <h1 id="head">Slot Game:</h1>
     <ul>
-      <li><span id="days"></span>days</li>
-      <li><span id="hours"></span>Hours</li>
-      <li><span id="minutes"></span>Minutes</li>
-      <li><span id="seconds"></span>Seconds</li>
-      <li><span id="milliseconds"></span>milliseconds</li>
+      <img id="slot1" src="images/apple.png">
+      <img id="slot2" src="images/peach.png">
+      <img id="slot3" src="images/sakura.png">
     </ul>
   </div>
+
+  <div class="container" style="z-index: -1;">
+    <button id="startButton" class="w3-button w3-yellow" onclick="stop()">Play</button>
+  </div>
+
+  <canvas class="background" id="congratulationBackground" style="display: none;">
+  </canvas>
+
+  <div class="container congratulationsText" id="congratulationText" style="display: none;">
+    <strong>Congratulations!!</strong>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+
   <script src="main.js" charset="utf-8"></script>
 </body>
 

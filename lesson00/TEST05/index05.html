@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson02-0</title>
+    <style media="screen">
+    body{
+      /* color:#fff; */
+      /* background-color:#000; */
+      font-size:1em;
+    }
+    .code {
+      color:#fff;
+      background-color:#000;
+      font-size:1em;
+      padding: 1em;
+    }
+    </style>
+</head>
+<body>
+
+    <h1>Hello, World</h1>
+    <p>関数を理解する</p>
+    <p>JavaScriptのコメントは // (スラッシュを二つ続けて書く)</p>
+
+    <p class="code">
+      <code>
+        for (var i = 0; i < 5; i++) { <br>
+          sample(); <br>
+        } <br>
+      </code>
+    </p>
+
+    <p class="code">
+      <code>
+        // for (var i = 0; i < 5; i++) { <br>
+        //   sample(); <br>
+        // } <br>
+      </code>
+    </p>
+
+    <script type="text/javascript">
+    function sample(){
+      document.write('<div style="color: red">');
+      document.write("<p>トラトラトラ</p>");
+      document.write("</div>");
+    }
+
+    // 一回呼ぶ
+    // sample();
+
+    // 複数回呼ぶ
+    // for (var i = 0; i < 5; i++) {
+    //   sample();
+    // }
+    </script>
+
+</body>
+</html>

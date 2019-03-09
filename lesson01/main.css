@@ -29,3 +29,37 @@ li span {
   display: block;
   font-size: 4.5rem;
 }
+
+/* スピンボタン（上下ボタン）を非表示 */
+input[type=date]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+/* 無入力時の 年/月/日 を / / にする */
+input[type=date]::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+input[type=date]::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+input[type=date]::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+  color: transparent;
+}
+/* /の色を変える */
+input[type=date]::-webkit-datetime-edit-text {
+  color: #666;
+}
+/* clearボタンの非表示 */
+input[type=date]::-webkit-clear-button {
+  -webkit-appearance: none;
+}
+/* カレンダーのインジケータ（▼）を非表示 */
+input[type=date]::-webkit-calendar-picker-indicator {
+  color: transparent;
+  position: relative;
+}
+/* fontAwesomeのカレンダーアイコンをインジケータにする */
+input[type=date]::-webkit-calendar-picker-indicator:before {
+  color: #666;
+  font-family: FontAwesome;
+  /*content: "\f073";*/ /* fa-calendar */
+  content: "\f133"; /* fa-calendar-o */
+  position: absolute;
+  left: -5px; /* ここら辺はいい感じの塩梅で */
+  top: -5px;  /* ここも */
+}
