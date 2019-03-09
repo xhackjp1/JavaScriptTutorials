@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>もぐらたたきゲーム</title>
+<style>
+#a td {
+	width: 100px;
+	height: 100px;
+	font-size: 50px;
+	border: 1px solid #ccc;
+	text-align:center;
+}
+#message {
+	font-size:200%;
+	font-weight:bold;
+	color:#c00;
+}
+</style>
+<script>
+window.onload = function() {
+
+	//9個のマスのID
+	var ids = ['b1','b2','b3','b4','b5','b6','b7','b8','b9'];
+
+	//ランダムにモグラを出す処理
+	function moguraDasu()
+	{
+		//20%ぐらいの確率でモグラを出すことにする
+		if (Math.random() > 0.2) {
+			return;
+		}
+
+		var target = ids[Math.floor(Math.random()*9)];
+		var masu = document.getElementById(target);
+
+		//ただしモグラを出すのはモグラがいないマス
+		if (masu.innerHTML == '') {
+			masu.innerHTML = 'も';
+			setTimeout(function(){moguraKakusu(masu);}, 1000);
+		}
+	}
+
+	//出したモグラを隠す処理
+	function moguraKakusu(masu)
+	{
+		masu.innerHTML = '';
+	}
+
+	//たたいた時の処理
+	function tataita(e)
+	{
+		if (e.target.innerHTML == 'も') {
+			document.getElementById('message').innerHTML = '○ あたり！';
+			e.target.innerHTML = '';
+		} else {
+			document.getElementById('message').innerHTML = '× はずれ！';
+		}
+	}
+
+	//各マスをたたいたときに実行するよう設定しておく
+	for (var i = 0; i < ids.length; i++) {
+		document.getElementById(ids[i]).addEventListener('click', tataita);
+	}
+
+	//モグラを出す処理を呼ぶ（1回目）
+	moguraDasu();
+	//そのあとも0.1秒ごとに呼ぶ
+	setInterval(moguraDasu, 100);
+	
+}
+</script>
+</head>
+<body>
+	<h1>もぐらたたきゲーム</h1>
+	<table id="a">
+		<tbody>
+			<tr><td id="b1"></td><td id="b2"></td><td id="b3"></td></tr>
+			<tr><td id="b4"></td><td id="b5"></td><td id="b6"></td></tr>
+			<tr><td id="b7"></td><td id="b8"></td><td id="b9"></td></tr>
+		</tbody>
+	</table>
+	<div id="message"></div>
+</body>
+</html>

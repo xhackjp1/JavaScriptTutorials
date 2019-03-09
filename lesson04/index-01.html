@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>もぐらたたきゲーム</title>
+<style media="screen">
+  h1 {
+		text-align: center;
+	}
+	.container{
+		width: 384px;
+		margin: 0px auto;
+	}
+	.wrapper{
+		margin: 0px auto;
+	  display: flex;
+	}
+	img {
+		width: 128px;
+		height: 128px;
+	}
+</style>
+<script>
+window.onload = function() {
+
+	var ids = ['b1','b2','b3','b4','b5','b6','b7','b8','b9'];
+
+	//ランダムにモグラを出す処理
+	function moguraDasu()
+	{
+		var target = ids[Math.floor(Math.random()*9)];
+		var masu = document.getElementById(target);
+
+		// var x = document.createElement("IMG");
+		masu.src = "images/mogumogu.png";
+		setTimeout(function(){moguraKakusu(masu);}, 1000);
+	}
+
+	//出したモグラを隠す処理
+	function moguraKakusu(masu)
+	{
+		masu.src = "images/ana.png";
+	}
+
+	//モグラを出す処理を呼ぶ（1回目）
+	moguraDasu();
+
+	//そのあとも1秒ごとに呼ぶ
+	setInterval(moguraDasu, 1000);
+
+}
+</script>
+</head>
+<body>
+	<h1>もぐらたたきゲーム</h1>
+	<div class="container">
+			<div class="wrapper">
+				<div><img id="b1" src="images/ana.png"></div>
+				<div><img id="b2" src="images/ana.png"></div>
+				<div><img id="b3" src="images/ana.png"></div>
+			</div>
+			<div class="wrapper">
+				<div><img id="b4" src="images/ana.png"></div>
+				<div><img id="b5" src="images/ana.png"></div>
+				<div><img id="b6" src="images/ana.png"></div>
+			</div>
+			<div class="wrapper">
+				<div><img id="b7" src="images/ana.png"></div>
+				<div><img id="b8" src="images/ana.png"></div>
+				<div><img id="b9" src="images/ana.png"></div>
+			</div>
+	</div>
+	<div id="message"></div>
+</body>
+</html>

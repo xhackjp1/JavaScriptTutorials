@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>もぐらたたきゲーム</title>
+<style media="screen">
+  h1 {
+		text-align: center;
+	}
+	.container{
+		width: 384px;
+		margin: 0px auto;
+	}
+	.wrapper{
+		margin: 0px auto;
+	  display: flex;
+	}
+	img {
+		width: 128px;
+		height: 128px;
+	}
+</style>
+<script>
+
+  function test()
+  {
+    if(document.getElementById("b1").src.indexOf("ana") > 0){
+      document.getElementById("b1").src = "images/mogumogu.png";
+    } else {
+      document.getElementById("b1").src = "images/ana.png";
+    }
+  }
+
+  // function change()
+  // {
+  //   var obj = event.target;
+  //   if(obj.src.indexOf("ana") > 0){
+  //     obj.src = "images/mogumogu.png";
+  //   } else {
+  //     obj.src = "images/ana.png";
+  //   }
+  // }
+
+</script>
+</head>
+<body>
+	<h1>もぐらたたきゲーム</h1>
+	<div class="container">
+			<div class="wrapper">
+				<div><img id="b1" src="images/ana.png" onclick="test()"></div>
+				<div><img id="b2" src="images/ana.png" onclick="change()"></div>
+				<div><img id="b3" src="images/ana.png" onclick="change()"></div>
+			</div>
+			<div class="wrapper">
+				<div><img id="b4" src="images/ana.png" onclick="change()"></div>
+				<div><img id="b5" src="images/ana.png" onclick="change()"></div>
+				<div><img id="b6" src="images/ana.png" onclick="change()"></div>
+			</div>
+			<div class="wrapper">
+				<div><img id="b7" src="images/ana.png" onclick="change()"></div>
+				<div><img id="b8" src="images/ana.png" onclick="change()"></div>
+				<div><img id="b9" src="images/ana.png" onclick="change()"></div>
+			</div>
+	</div>
+	<div id="message"></div>
+</body>
+</html>
