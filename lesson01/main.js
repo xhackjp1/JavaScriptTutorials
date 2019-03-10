@@ -1,8 +1,14 @@
-const second = 1000;
-const minute = second * 60;
-const hour = minute * 60;
-const day = hour * 24;
-const intervalTime = 10;
+// const var letを使い分ける
+
+// const 再代入は不要 定数など
+// let ブロックスコープ
+// var ブロックの外でも参照可能
+
+const second = 1000; // 秒
+const minute = second * 60; // 分
+const hour = minute * 60; // 時間
+const day = hour * 24; // 日
+const intervalTime = 10; // インターバル
 
 const DAYS = document.getElementById('days');
 const HOURS = document.getElementById('hours');
