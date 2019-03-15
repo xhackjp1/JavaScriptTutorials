@@ -19,21 +19,51 @@
 		width: 128px;
 		height: 128px;
 	}
+  .container {
+    cursor: wait;
+  }
+  /* body {
+    background-image: "sogen.png";
+  } */
+  body {
+    /* 画像ファイルの指定 */
+    background-image: url(http://blog-imgs-88.fc2.com/p/i/p/piposozai/20160224232346d54s.png);
+  }
 </style>
 <script>
 window.onload = function() {
 
+  var score = document.getElementById("score");
+  var total = document.getElementById("total");
+  var counter = 0;
+  var totalCounter = 0;
 	var ids = ['b1','b2','b3','b4','b5','b6','b7','b8','b9'];
+
+	//各マスをたたいたときに実行するよう設定しておく
+	for (var i = 0; i < ids.length; i++) {
+		document.getElementById(ids[i]).addEventListener('click', tataita);
+	}
+
+  function tataita()
+  {
+    var obj = event.target;
+    if(obj.src.indexOf("mogumogu") > 0){
+      counter = counter + 1;
+      score.innerHTML = counter;
+    }
+  }
 
 	//ランダムにモグラを出す処理
 	function moguraDasu()
 	{
-		var target = ids[Math.floor(Math.random()*9)];
+    totalCounter = totalCounter + 1;
+    total.innerHTML = totalCounter;
+		var target = ids[Math.floor(Math.random()*ids.length)];
 		var masu = document.getElementById(target);
 
 		// var x = document.createElement("IMG");
 		masu.src = "images/mogumogu.png";
-		setTimeout(function(){moguraKakusu(masu);}, 1000);
+		setTimeout(function(){moguraKakusu(masu);}, 600);
 	}
 
 	//出したモグラを隠す処理
@@ -46,16 +76,20 @@ window.onload = function() {
 	moguraDasu();
 
 	//そのあとも1秒ごとに呼ぶ
-	setInterval(moguraDasu, 1000);
+	setInterval(moguraDasu, 100);
 
 }
 </script>
 </head>
 <body>
 	<h1>もぐらたたきゲーム</h1>
+  スコア
+  <span id="score">0</span>
+  出現数
+  <span id="total">0</span>
 	<div class="container">
 			<div class="wrapper">
-				<div><img id="b1" src="images/ana.png"></div>
+				<div><img id="b1" src="images/ana.png" onclick="tataita()"></div>
 				<div><img id="b2" src="images/ana.png"></div>
 				<div><img id="b3" src="images/ana.png"></div>
 			</div>

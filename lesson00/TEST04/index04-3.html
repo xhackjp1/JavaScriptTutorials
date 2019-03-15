@@ -8,17 +8,22 @@
 
     <h1>Hello, World</h1>
     <p>配列、ループを理解する</p>
-    
+
     <div class="sample">本日は晴天なり</div>
     <div class="sample">本日は曇天なり</div>
     <div class="sample">本日は快晴なり</div>
     <div class="sample">本日は吹雪なり</div>
 
     <script>
-    var array = document.getElementsByClassName("sample");
+    var divelements = document.getElementsByClassName("sample");
     var colors = ["red", "green", "#00ff33", "#3BACDE"];
-    for (var i = 0; i < array.length; i++) {
-      array[i].style.color = colors[i];
+
+    for (var i = 0; i < divelements.length; i++) {
+      divelements[i].style.color = colors[i];
+    }
+
+    for (var i = 0; i < 5; i++) {
+      console.log(i + "回目のループ");
     }
     </script>
 

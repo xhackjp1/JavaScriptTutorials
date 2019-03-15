@@ -22,24 +22,18 @@
 </style>
 <script>
 
-  function test()
+  function change()
   {
-    if(document.getElementById("b1").src.indexOf("ana") > 0){
-      document.getElementById("b1").src = "images/mogumogu.png";
+    var obj = event.target;
+    if(obj.src.indexOf("ana") > 0){
+      obj.src = "images/mogumogu.png";
     } else {
-      document.getElementById("b1").src = "images/ana.png";
+      obj.src = "images/ana.png";
     }
   }
 
-  // function change()
-  // {
-  //   var obj = event.target;
-  //   if(obj.src.indexOf("ana") > 0){
-  //     obj.src = "images/mogumogu.png";
-  //   } else {
-  //     obj.src = "images/ana.png";
-  //   }
-  // }
+  //そのあとも1秒ごとに呼ぶ
+  setInterval(change(), 1000);
 
 </script>
 </head>
@@ -47,7 +41,7 @@
 	<h1>もぐらたたきゲーム</h1>
 	<div class="container">
 			<div class="wrapper">
-				<div><img id="b1" src="images/ana.png" onclick="test()"></div>
+				<div><img id="b1" src="images/ana.png" onclick="change()"></div>
 				<div><img id="b2" src="images/ana.png" onclick="change()"></div>
 				<div><img id="b3" src="images/ana.png" onclick="change()"></div>
 			</div>

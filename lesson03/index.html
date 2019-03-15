@@ -14,16 +14,16 @@
 	var canvas;
 	var stage;
 	var shape;
-	var radius = 50;
-	var rings = 16;
+	var radius = 25;
+	var rings = 4;
 	function init() {
 		// create a new stage and point it at our canvas:
 		canvas = document.getElementById("testCanvas");
 		stage = new createjs.Stage(canvas);
 		// create a large number of slightly complex vector shapes, and give them random positions and velocities:
-		var colors = ["#F98866", "#FF420E", "#808D9E", "#89DA59", "#4abdac", "#fc4a1a", "#f78733", "#dfdce3"];
+		var colors = ["red", "blue", "green", "yellow", "#4abdac", "#fc4a1a", "#f78733", "#dfdce3"];
 
-		for (var i = 0; i < 100; i++) {
+		for (var i = 0; i < 30; i++) {
 			shape = new createjs.Shape();
 			for (var j = rings; j > 0; j--) {
 				shape.graphics.beginFill(colors[Math.random() * colors.length | 0]).drawCircle(0, 0, radius * j / rings);
