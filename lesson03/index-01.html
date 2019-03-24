@@ -19,34 +19,33 @@
 		width: 128px;
 		height: 128px;
 	}
-  .container {
-    cursor: wait;
-  }
-  /* body {
-    background-image: "sogen.png";
-  } */
-  body {
-    /* 画像ファイルの指定 */
-    background-image: url(http://blog-imgs-88.fc2.com/p/i/p/piposozai/20160224232346d54s.png);
-  }
 </style>
 <script>
 window.onload = function() {
 
+	// ゲーム内表記データ
   var score = document.getElementById("score");
   var total = document.getElementById("total");
+	var message = document.getElementById("message")
   var counter = 0;
   var totalCounter = 0;
-	var ids = ['b1','b2','b3','b4','b5','b6','b7','b8','b9'];
 
 	//各マスをたたいたときに実行するよう設定しておく
+	var ids = ['b1','b2','b3','b4','b5','b6','b7','b8','b9'];
 	for (var i = 0; i < ids.length; i++) {
 		document.getElementById(ids[i]).addEventListener('click', tataita);
 	}
 
+	// クラス名で取得
+	// var moguras = document.getElementsByClassName("mogura");
+	// for (var i = 0; i < moguras.length; i++) {
+	// 	moguras[i].addEventListener('click', tataita);
+	// }
+
   function tataita()
   {
     var obj = event.target;
+		// alert(event.target.id);
     if(obj.src.indexOf("mogumogu") > 0){
       counter = counter + 1;
       score.innerHTML = counter;
@@ -56,14 +55,18 @@ window.onload = function() {
 	//ランダムにモグラを出す処理
 	function moguraDasu()
 	{
+		if(totalCounter >= 100){
+			message.innerHTML = "ゲーム終了";
+			return;
+		}
     totalCounter = totalCounter + 1;
     total.innerHTML = totalCounter;
 		var target = ids[Math.floor(Math.random()*ids.length)];
 		var masu = document.getElementById(target);
+		// var masu = moguras[Math.floor(Math.random()*moguras.length)];
 
-		// var x = document.createElement("IMG");
 		masu.src = "images/mogumogu.png";
-		setTimeout(function(){moguraKakusu(masu);}, 600);
+		setTimeout(function(){moguraKakusu(masu);}, 1000);
 	}
 
 	//出したモグラを隠す処理
@@ -76,7 +79,7 @@ window.onload = function() {
 	moguraDasu();
 
 	//そのあとも1秒ごとに呼ぶ
-	setInterval(moguraDasu, 100);
+	setInterval(moguraDasu, 500);
 
 }
 </script>
@@ -87,21 +90,24 @@ window.onload = function() {
   <span id="score">0</span>
   出現数
   <span id="total">0</span>
+
+	<div id="message"></div>
+
 	<div class="container">
 			<div class="wrapper">
-				<div><img id="b1" src="images/ana.png" onclick="tataita()"></div>
-				<div><img id="b2" src="images/ana.png"></div>
-				<div><img id="b3" src="images/ana.png"></div>
+				<div><img id="b1" class="mogura" src="images/ana.png"></div>
+				<div><img id="b2" class="mogura" src="images/ana.png"></div>
+				<div><img id="b3" class="mogura" src="images/ana.png"></div>
 			</div>
 			<div class="wrapper">
-				<div><img id="b4" src="images/ana.png"></div>
-				<div><img id="b5" src="images/ana.png"></div>
-				<div><img id="b6" src="images/ana.png"></div>
+				<div><img id="b4" class="mogura" src="images/ana.png"></div>
+				<div><img id="b5" class="mogura" src="images/ana.png"></div>
+				<div><img id="b6" class="mogura" src="images/ana.png"></div>
 			</div>
 			<div class="wrapper">
-				<div><img id="b7" src="images/ana.png"></div>
-				<div><img id="b8" src="images/ana.png"></div>
-				<div><img id="b9" src="images/ana.png"></div>
+				<div><img id="b7" class="mogura" src="images/ana.png"></div>
+				<div><img id="b8" class="mogura" src="images/ana.png"></div>
+				<div><img id="b9" class="mogura" src="images/ana.png"></div>
 			</div>
 	</div>
 	<div id="message"></div>
