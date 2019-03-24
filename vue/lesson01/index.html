@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>The greatest news app ever</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+</head>
+
+<body>
+	<div id="app">
+		<li v-for="item in info">
+			{{ item.name }}
+		</li>
+	</div>
+
+	<!-- <div id="app">
+		<h1>Bitcoin Price Index</h1>
+		<div v-for="currency in info" class="currency">
+			{{ currency.description }}:
+			<span class="lighten">
+				<span v-html="currency.symbol"></span>{{ currency.rate_float | currencydecimal }}
+			</span>
+		</div>
+	</div> -->
+
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="app.js"></script>
+</body>
+
+</html>
